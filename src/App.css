@@ -1,80 +1,146 @@
+/* reset */
+
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
 body {
-  margin: 0px;
-  background: #f3f4f6;
+  background-color: #f3f4f6;
   font-family: Arial, sans-serif;
 }
+
+/* common page layout */
+
+.page-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  padding: 30px;
+}
+
+.page-title {
+  font-size: 38px;
+  color: #111827;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.page-subtitle {
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+/* sidebar */
+
 .sidebar {
-  width: 220px;
-  height: 100vh;
+  width: 260px;
+  min-height: 100vh;
   background-color: #111827;
   color: white;
-  padding: 20px;
+  padding: 30px 24px;
 }
 
 .sidebar h2 {
-  margin-bottom: 30px;
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 34px;
+  margin-bottom: 50px;
 }
 
 .sidebar a {
   display: block;
   color: white;
   text-decoration: none;
-  margin-bottom: 18px;
-  padding: 10px;
-  border-radius: 8px;
+  font-size: 20px;
+  margin-bottom: 24px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
 .sidebar a:hover {
   background-color: #2563eb;
-  transition: 0.5s;
 }
+
+/* dashboard */
+
+.dashboard-content {
+  flex: 1;
+  padding: 30px;
+}
+
+.dashboard-title {
+  font-size: 42px;
+  color: #111827;
+  margin-bottom: 30px;
+}
+
+/* dashboard cards */
+
 .cards-container {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
+
 .card {
   background-color: white;
   padding: 24px;
-  width: 240px;
+  width: 250px;
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  cursor: pointer;
 }
+
 .card:hover {
   transform: translateY(-4px);
-  background-color: #b2c6da;
+  background-color: #f9fafb;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
+
 .card h3 {
   font-size: 18px;
   font-weight: 600;
   color: #6b7280;
-  margin-bottom: 16px;
+  margin: 14px 0 16px;
 }
 
 .card p {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   color: #111827;
 }
+
+/* bottom section */
+
 .bottom-section {
+  display: flex;
+  gap: 24px;
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
+/* complaints section */
+
 .complaints-section {
+  flex: 2;
+  min-width: 500px;
   background-color: white;
   padding: 24px;
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  width: 900px;
 }
 
 .complaints-section h2 {
@@ -100,12 +166,50 @@ body {
   font-size: 14px;
 }
 
+/* notices section */
+
+.notices-section {
+  flex: 1;
+  min-width: 320px;
+  background-color: white;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.notices-section h2 {
+  margin-bottom: 24px;
+  color: #111827;
+}
+
+.notice-item {
+  background-color: #f9fafb;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  border-left: 4px solid #2563eb;
+}
+
+.notice-item h4 {
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.notice-item p {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* status badges */
+
+.status,
 .pending,
 .progress,
 .resolved {
-  padding: 8px 14px;
+  padding: 7px 12px;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -122,4 +226,289 @@ body {
 .resolved {
   background-color: #dcfce7;
   color: #16a34a;
+}
+
+.active {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.inactive {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* residents table */
+
+.table-card {
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  color: #6b7280;
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+  padding: 16px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #111827;
+}
+.search-input {
+  width: 350px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #2563eb;
+}
+/* resident form */
+
+.resident-form {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.resident-form input {
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.resident-form input:focus {
+  border-color: #2563eb;
+}
+
+.resident-form button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.resident-form button:hover {
+  background-color: #1d4ed8;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+  .page-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .cards-container,
+  .bottom-section {
+    flex-direction: column;
+  }
+
+  .card,
+  .complaints-section,
+  .notices-section {
+    width: 100%;
+    min-width: unset;
+  }
+}
+/* complaints page */
+
+.complaints-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.complaint-card {
+  background-color: white;
+  width: 350px;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.complaint-card:hover {
+  transform: translateY(-4px);
+  background-color: #f9fafb;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.complaint-card h3 {
+  color: #111827;
+  margin-bottom: 18px;
+}
+
+.complaint-card p {
+  color: #6b7280;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+/* notices page */
+
+.notice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.notice-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.notice-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.notices-page-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.notice-card {
+  background-color: white;
+  width: 360px;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #2563eb;
+  transition: 0.3s;
+}
+
+.notice-card:hover {
+  transform: translateY(-4px);
+  background-color: #f9fafb;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.notice-card h3 {
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.notice-date {
+  color: #2563eb;
+  font-size: 14px;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.notice-description {
+  color: #6b7280;
+  line-height: 1.6;
+}
+/* parking page */
+
+.parking-cards {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+/* login page */
+
+.login-page {
+  min-height: 100vh;
+  background-color: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  width: 420px;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 42px;
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.login-card h1 {
+  color: white;
+  font-size: 42px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.login-card p {
+  color: #cbd5e1;
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 18px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.login-card input::placeholder {
+  color: #94a3b8;
+}
+
+.login-card input:focus {
+  border-color: #3b82f6;
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+.login-card button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.login-card button:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
 }

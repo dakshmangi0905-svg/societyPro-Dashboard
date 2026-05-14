@@ -1,27 +1,29 @@
 import Sidebar from "../components/Sidebar";
 import { Users, AlertCircle, Car, IndianRupee } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const nav = useNavigate();
   return (
     <div style={{ display: "flex" }}>
       <Sidebar />
 
-      <div style={{ padding: "20px", fontSize: "30px", fontWeight: "bold" }}>
-        <h1>Dashboard </h1>
+      <div className="page-content">
+        <h1 className="page-title">Dashboard </h1>
         <div className="cards-container">
-          <div className="card">
+          <div className="card" onClick={() => nav("/resident")}>
             <Users size={40} color="#2563EB" />
             <h3>Total Residents</h3>
             <p>320</p>
           </div>
 
-          <div className="card">
+          <div className="card" onClick={() => nav("/complaint")}>
             <AlertCircle size={40} color="#2563Eb" />
             <h3>Pending Complaints</h3>
             <p>8</p>
           </div>
 
-          <div className="card">
+          <div className="card" onClick={() => nav("/parking")}>
             <Car size={40} color="#2563eb" />
             <h3>Parking Slots</h3>
             <p>74</p>
